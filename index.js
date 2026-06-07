@@ -47,9 +47,10 @@ app.get('/api/livro/:id', (req, res) => {
     }
 
     res.json(livro);
+
 });
 
-// POST - Cadastrar livro
+// POST
 app.post('/api/livro', (req, res) => {
 
     const novoLivro = req.body;
@@ -57,6 +58,28 @@ app.post('/api/livro', (req, res) => {
     livros.push(novoLivro);
 
     res.status(201).json(novoLivro);
+
+});
+
+// PUT
+app.put('/api/livro/:id', (req, res) => {
+
+    const id = parseInt(req.params.id);
+
+    const livro = livros.find(l => l.id === id);
+
+    if (!livro) {
+        return res.status(404).json({
+            mensagem: "Livro não encontrado"
+        });
+    }
+
+    livro.titulo = req.body.titulo;
+    livro.autor = req.body.autor;
+    livro.genero = req.body.genero;
+    livro.ano = req.body.ano;
+
+    res.json(livro);
 
 });
 

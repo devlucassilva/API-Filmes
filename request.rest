@@ -1,9 +1,9 @@
-### Listar livros
+### Listar todos
 GET http://localhost:3000/api/livro
 
 ###
 
-### Buscar livro por ID
+### Buscar por ID
 GET http://localhost:3000/api/livro/1
 
 ###
@@ -18,4 +18,17 @@ Content-Type: application/json
     "autor": "J.R.R. Tolkien",
     "genero": "Fantasia",
     "ano": 1937
+}
+
+###
+
+### Atualizar livro
+PUT http://localhost:3000/api/livro/3
+Content-Type: application/json
+
+{
+    "titulo": "O Senhor dos Anéis",
+    "autor": "J.R.R. Tolkien",
+    "genero": "Fantasia",
+    "ano": 1954
 }

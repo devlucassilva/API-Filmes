@@ -7,30 +7,104 @@
   },
   "paths": {
     "/api/livro": {
+      "get": {
+        "tags": ["Livros"],
+        "summary": "Listar todos os livros",
+        "responses": {
+          "200": {
+            "description": "Lista de livros"
+          }
+        }
+      },
+      "post": {
+        "tags": ["Livros"],
+        "summary": "Cadastrar livro",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "integer"
+                  },
+                  "titulo": {
+                    "type": "string"
+                  },
+                  "autor": {
+                    "type": "string"
+                  },
+                  "genero": {
+                    "type": "string"
+                  },
+                  "ano": {
+                    "type": "integer"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Livro cadastrado"
+          }
+        }
+      }
+    },
+
+    "/api/livro/{id}": {
 
       "get": {
 
         "tags": ["Livros"],
 
-        "summary": "Listar todos os livros",
+        "summary": "Buscar livro por ID",
+
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
 
         "responses": {
 
           "200": {
+            "description": "Livro encontrado"
+          },
 
-            "description": "Lista de livros"
-
+          "404": {
+            "description": "Livro não encontrado"
           }
 
         }
 
       },
 
-      "post": {
+      "put": {
 
         "tags": ["Livros"],
 
-        "summary": "Cadastrar livro",
+        "summary": "Atualizar livro",
+
+        "parameters": [
+
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+
+        ],
 
         "requestBody": {
 
@@ -45,10 +119,6 @@
                 "type": "object",
 
                 "properties": {
-
-                  "id": {
-                    "type": "integer"
-                  },
 
                   "titulo": {
                     "type": "string"
@@ -78,51 +148,9 @@
 
         "responses": {
 
-          "201": {
-
-            "description": "Livro cadastrado com sucesso"
-
-          }
-
-        }
-
-      }
-
-    },
-
-    "/api/livro/{id}": {
-
-      "get": {
-
-        "tags": ["Livros"],
-
-        "summary": "Buscar livro por ID",
-
-        "parameters": [
-
-          {
-
-            "name": "id",
-
-            "in": "path",
-
-            "required": true,
-
-            "schema": {
-
-              "type": "integer"
-
-            }
-
-          }
-
-        ],
-
-        "responses": {
-
           "200": {
 
-            "description": "Livro encontrado"
+            "description": "Livro atualizado"
 
           },
 
