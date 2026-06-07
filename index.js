@@ -16,27 +16,21 @@ let livros = [
         id: 1,
         titulo: "Dom Casmurro",
         autor: "Machado de Assis",
+        genero: "Romance",
         ano: 1899
     },
     {
         id: 2,
         titulo: "1984",
         autor: "George Orwell",
+        genero: "Ficção",
         ano: 1949
-    },
-    {
-        id: 3,
-        titulo: "O Hobbit",
-        autor: "J.R.R. Tolkien",
-        ano: 1937
     }
 ];
 
 // GET - Todos os livros
 app.get('/api/livro', (req, res) => {
-
     res.json(livros);
-
 });
 
 // GET - Livro por ID
@@ -47,19 +41,25 @@ app.get('/api/livro/:id', (req, res) => {
     const livro = livros.find(l => l.id === id);
 
     if (!livro) {
-
         return res.status(404).json({
             mensagem: "Livro não encontrado"
         });
-
     }
 
     res.json(livro);
+});
+
+// POST - Cadastrar livro
+app.post('/api/livro', (req, res) => {
+
+    const novoLivro = req.body;
+
+    livros.push(novoLivro);
+
+    res.status(201).json(novoLivro);
 
 });
 
 app.listen(3000, () => {
-
     console.log("Servidor rodando na porta 3000");
-
 });

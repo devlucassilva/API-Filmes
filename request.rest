@@ -1,9 +1,21 @@
-### GET - Todos os livros
-
+### Listar livros
 GET http://localhost:3000/api/livro
 
 ###
 
-### GET - Buscar livro por ID
-
+### Buscar livro por ID
 GET http://localhost:3000/api/livro/1
+
+###
+
+### Cadastrar livro
+POST http://localhost:3000/api/livro
+Content-Type: application/json
+
+{
+    "id": 3,
+    "titulo": "O Hobbit",
+    "autor": "J.R.R. Tolkien",
+    "genero": "Fantasia",
+    "ano": 1937
+}

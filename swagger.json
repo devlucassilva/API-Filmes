@@ -6,7 +6,6 @@
     "version": "1.0.0"
   },
   "paths": {
-
     "/api/livro": {
 
       "get": {
@@ -20,6 +19,68 @@
           "200": {
 
             "description": "Lista de livros"
+
+          }
+
+        }
+
+      },
+
+      "post": {
+
+        "tags": ["Livros"],
+
+        "summary": "Cadastrar livro",
+
+        "requestBody": {
+
+          "required": true,
+
+          "content": {
+
+            "application/json": {
+
+              "schema": {
+
+                "type": "object",
+
+                "properties": {
+
+                  "id": {
+                    "type": "integer"
+                  },
+
+                  "titulo": {
+                    "type": "string"
+                  },
+
+                  "autor": {
+                    "type": "string"
+                  },
+
+                  "genero": {
+                    "type": "string"
+                  },
+
+                  "ano": {
+                    "type": "integer"
+                  }
+
+                }
+
+              }
+
+            }
+
+          }
+
+        },
+
+        "responses": {
+
+          "201": {
+
+            "description": "Livro cadastrado com sucesso"
 
           }
 
