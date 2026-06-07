@@ -83,6 +83,27 @@ app.put('/api/livro/:id', (req, res) => {
 
 });
 
+// DELETE
+app.delete('/api/livro/:id', (req, res) => {
+
+    const id = parseInt(req.params.id);
+
+    const indice = livros.findIndex(l => l.id === id);
+
+    if (indice === -1) {
+        return res.status(404).json({
+            mensagem: "Livro não encontrado"
+        });
+    }
+
+    livros.splice(indice, 1);
+
+    res.json({
+        mensagem: "Livro removido com sucesso"
+    });
+
+});
+
 app.listen(3000, () => {
     console.log("Servidor rodando na porta 3000");
 });

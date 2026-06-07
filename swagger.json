@@ -26,21 +26,11 @@
               "schema": {
                 "type": "object",
                 "properties": {
-                  "id": {
-                    "type": "integer"
-                  },
-                  "titulo": {
-                    "type": "string"
-                  },
-                  "autor": {
-                    "type": "string"
-                  },
-                  "genero": {
-                    "type": "string"
-                  },
-                  "ano": {
-                    "type": "integer"
-                  }
+                  "id": { "type": "integer" },
+                  "titulo": { "type": "string" },
+                  "autor": { "type": "string" },
+                  "genero": { "type": "string" },
+                  "ano": { "type": "integer" }
                 }
               }
             }
@@ -53,15 +43,10 @@
         }
       }
     },
-
     "/api/livro/{id}": {
-
       "get": {
-
         "tags": ["Livros"],
-
         "summary": "Buscar livro por ID",
-
         "parameters": [
           {
             "name": "id",
@@ -72,29 +57,19 @@
             }
           }
         ],
-
         "responses": {
-
           "200": {
             "description": "Livro encontrado"
           },
-
           "404": {
             "description": "Livro não encontrado"
           }
-
         }
-
       },
-
       "put": {
-
         "tags": ["Livros"],
-
         "summary": "Atualizar livro",
-
         "parameters": [
-
           {
             "name": "id",
             "in": "path",
@@ -103,69 +78,54 @@
               "type": "integer"
             }
           }
-
         ],
-
         "requestBody": {
-
           "required": true,
-
           "content": {
-
             "application/json": {
-
               "schema": {
-
                 "type": "object",
-
                 "properties": {
-
-                  "titulo": {
-                    "type": "string"
-                  },
-
-                  "autor": {
-                    "type": "string"
-                  },
-
-                  "genero": {
-                    "type": "string"
-                  },
-
-                  "ano": {
-                    "type": "integer"
-                  }
-
+                  "titulo": { "type": "string" },
+                  "autor": { "type": "string" },
+                  "genero": { "type": "string" },
+                  "ano": { "type": "integer" }
                 }
-
               }
-
             }
-
           }
-
         },
-
         "responses": {
-
           "200": {
-
             "description": "Livro atualizado"
-
           },
-
           "404": {
-
             "description": "Livro não encontrado"
-
           }
-
         }
-
+      },
+      "delete": {
+        "tags": ["Livros"],
+        "summary": "Excluir livro",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Livro removido"
+          },
+          "404": {
+            "description": "Livro não encontrado"
+          }
+        }
       }
-
     }
-
   }
-
 }

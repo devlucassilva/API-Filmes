@@ -32,3 +32,8 @@ Content-Type: application/json
     "genero": "Fantasia",
     "ano": 1954
 }
+
+###
+
+### Excluir livro
+DELETE http://localhost:3000/api/livro/3
