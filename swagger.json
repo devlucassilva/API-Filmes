@@ -1,0 +1,82 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "API LIVROS",
+    "description": "Documentação da API de Livros",
+    "version": "1.0.0"
+  },
+  "paths": {
+
+    "/api/livro": {
+
+      "get": {
+
+        "tags": ["Livros"],
+
+        "summary": "Listar todos os livros",
+
+        "responses": {
+
+          "200": {
+
+            "description": "Lista de livros"
+
+          }
+
+        }
+
+      }
+
+    },
+
+    "/api/livro/{id}": {
+
+      "get": {
+
+        "tags": ["Livros"],
+
+        "summary": "Buscar livro por ID",
+
+        "parameters": [
+
+          {
+
+            "name": "id",
+
+            "in": "path",
+
+            "required": true,
+
+            "schema": {
+
+              "type": "integer"
+
+            }
+
+          }
+
+        ],
+
+        "responses": {
+
+          "200": {
+
+            "description": "Livro encontrado"
+
+          },
+
+          "404": {
+
+            "description": "Livro não encontrado"
+
+          }
+
+        }
+
+      }
+
+    }
+
+  }
+
+}

@@ -1,0 +1,9 @@
+### GET - Todos os livros
+
+GET http://localhost:3000/api/livro
+
+###
+
+### GET - Buscar livro por ID
+
+GET http://localhost:3000/api/livro/1

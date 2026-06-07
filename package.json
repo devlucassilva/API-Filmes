@@ -1,0 +1,14 @@
+{
+  "name": "dev-fw-2",
+  "version": "1.0.0",
+  "description": "API REST de Livros",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "type": "commonjs",
+  "dependencies": {
+    "express": "^5.2.1",
+    "swagger-ui-express": "^5.0.1"
+  }
+}
